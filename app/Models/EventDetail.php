@@ -21,13 +21,10 @@ class EventDetail extends Model
         'cb_type',
     ];
 
-<<<<<<< HEAD
     protected $primaryKey = 'event_id';
     public $incrementing = true;
     protected $keyType = 'int';
 
-=======
->>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
     public function progressDetails()
     {
         return $this->hasMany(ProgressDetail::class, 'cb_type', 'event_id');

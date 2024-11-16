@@ -17,13 +17,9 @@ class EventDetailController extends Controller
     }
 
     function showAdmCBcourse(){
-<<<<<<< HEAD
         $events = EventDetail::all();
 
         return view('admin.cb-course', compact('events'));
-=======
-        return view('admin.cb-course');
->>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
     }
 
     function showAdmCreate(){
@@ -58,11 +54,7 @@ class EventDetailController extends Controller
             // Redirect with success message
             return redirect()->route('admCb_course')->with('success', 'Event Detail created successfully.');
         } catch (QueryException $e) {
-<<<<<<< HEAD
             dd($e->getMessage()); // Menampilkan pesan error query di browser
-=======
-            // Catch database-related errors
->>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
             return redirect()->back()->with('error', 'There was an error creating the event. Please try again.');
         } catch (\Exception $e) {
             // Catch any other errors
@@ -79,7 +71,6 @@ class EventDetailController extends Controller
         return view('admin.cb-project');
     }
 
-<<<<<<< HEAD
     public function showAdmEdit($id)
     {
         // Temukan event berdasarkan event_id
@@ -122,12 +113,6 @@ class EventDetailController extends Controller
     }    
 
 
-=======
-    function showAdmEdit(){
-        return view('admin.edit-cb');
-    }
-
->>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
     function showAdmEdit2(){
         return view('admin.edit-cb-2');
     }
