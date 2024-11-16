@@ -9,7 +9,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('event_details', function (Blueprint $table) {
+<<<<<<< HEAD
             $table->bigInteger('event_id')->unique()->autoIncrement();
+=======
+            $table->bigInteger('event_id')->unique();
+>>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
             $table->string('e_name');
             $table->string('e_type');
             $table->string('organizer');

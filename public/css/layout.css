@@ -228,6 +228,7 @@ p{
 
 .status.blue {
     background: linear-gradient(180deg, #0097da, #006f9e);
+<<<<<<< HEAD
 }
 
 input[type=file]::file-selector-button {
@@ -244,4 +245,6 @@ input[type=file]::file-selector-button {
   
 input[type=file]::file-selector-button:hover {
     background: linear-gradient(180deg, #0097da, #00516c) !important;
+=======
+>>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
 }

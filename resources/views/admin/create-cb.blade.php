@@ -6,6 +6,10 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 @endpush
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
 @section('content')
 @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>

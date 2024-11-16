@@ -6,6 +6,7 @@
 
 @section('content')
 
+<<<<<<< HEAD
 @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -18,6 +19,8 @@
     </div>
 @endif
 
+=======
+>>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
     <div>
         <h3 class="page-title">Character Building Course</h3>
     </div>
@@ -31,6 +34,7 @@
     <hr class="my-3">
 
 <div class="cards-container">
+<<<<<<< HEAD
             @foreach ($events as $event)
             <div class="card">
                 <h4>{{ $event->e_name }}</h4>
@@ -43,6 +47,21 @@
             @endforeach
 
             <!-- <div class="card">
+=======
+        <!-- <a href="#" class="card-link"> -->
+            <div class="card">
+                <h4>Project CB Course Odd 2023/2024</h4>
+                <p>CB Type: Agama</p>
+                <p>Opening Registration: 2024-01-01</p>
+                <p>Closing Registration: 2024-02-01</p>
+                <p>Report Deadline: 2024-05-27</p>
+                <a href="{{ route('admEdit') }}" class="status waiting">EDIT</a>
+            </div>
+        <!-- </a> -->
+
+        <!-- <a href="#" class="card-link"> -->
+            <div class="card">
+>>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
                 <h4>Project CB Course Odd 2023/2024</h4>
                 <p>CB Type: Pancasila</p>
                 <p>Opening Registration: 2023-01-01</p>
@@ -50,7 +69,13 @@
                 <p>Report Deadline: 2023-05-27</p>
                 <button class="status waiting">EDIT</button>
             </div>
+<<<<<<< HEAD
 
+=======
+        <!-- </a> -->
+
+        <!-- <a href="#" class="card-link"> -->
+>>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
             <div class="card">
                 <h4>Project CB Course Odd 2024/2025</h4>
                 <p>CB Type: Pendidikan</p>
@@ -59,7 +84,13 @@
                 <p>Report Deadline: 2024-12-25</p>
                 <button class="status waiting">EDIT</button>
             </div>
+<<<<<<< HEAD
 
+=======
+        <!-- </a> -->
+
+        <!-- <a href="#" class="card-link"> -->
+>>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
             <div class="card">
                 <h4>Project CB Course Odd 2024/2025</h4>
                 <p>CB Type: Pendidikan</p>
@@ -68,7 +99,13 @@
                 <p>Report Deadline: 2024-12-25</p>
                 <button class="status waiting">EDIT</button>
             </div>
+<<<<<<< HEAD
 
+=======
+        <!-- </a> -->
+
+        <!-- <a href="#" class="card-link"> -->
+>>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
             <div class="card">
                 <h4>Project CB Course Odd 2024/2025</h4>
                 <p>CB Type: CB Pendidikan</p>
@@ -76,7 +113,12 @@
                 <p>Closing Registration: 2024-03-01</p>
                 <p>Report Deadline: 2024-12-25</p>
                 <button class="status waiting">EDIT</button>
+<<<<<<< HEAD
             </div> -->
+=======
+            </div>
+        <!-- </a>    -->
+>>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
 </div>
 
 @endsection

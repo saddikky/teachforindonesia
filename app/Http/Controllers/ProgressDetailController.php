@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 
 namespace App\Http\Controllers;
 
@@ -94,3 +95,13 @@ class ProgressDetailController extends Controller
 
 
 		
+=======
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ProgressDetailController extends Controller
+{
+    //
+}
+>>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
