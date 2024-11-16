@@ -1,15 +1,10 @@
 @extends('user-layout')
 
-<<<<<<< HEAD
-
-=======
->>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/cb-details.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 @endpush
 
-<<<<<<< HEAD
 
 @section('content')
 
@@ -17,12 +12,6 @@
 <body>
 
 
-=======
-@section('content')
-
-<body>
-
->>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
     <!-- <div class="centered-div">
         <ol class="lg:flex items-center w-full space-y-4 lg:space-y-0">
             <li class="flex-1">
@@ -89,21 +78,13 @@
         </div>
     </div>
 
-
-<<<<<<< HEAD
-
-
     <form method="post" action="{{ route('CBform.submit') }}" enctype="multipart/form-data">
-=======
-    <form method="post" action="#" class="mb-5" enctype="multipart/form-data">
->>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
     @csrf
         <div class="containerss">
             <section class="student-detail">
                 <h2 class="form-title">Student Detail Form</h2>
                 <div class="form-group">
                     <label for="nim">NIM</label>
-<<<<<<< HEAD
                     <input type="text" id="nim" name="nim" value="2602073100" required>
                 </div>
                 <div class="form-group">
@@ -117,21 +98,6 @@
                 <div class="form-group">
                     <label for="lecturer">Lecturer</label>
                     <input type="text" id="lecturer" name="lecturer" value="" required>
-=======
-                    <input type="text" id="nim" name="nim" value="26020" required>
-                </div>
-                <div class="form-group">
-                    <label for="leader_nim">Leader NIM</label>
-                    <input type="text" id="leader_nim" name="leader-nim" value="2602063094" required>
-                </div>
-                <div class="form-group">
-                    <label for="lecturer_code">Lecture Code</label>
-                    <input type="text" id="lecturer_code" value="" required>
-                </div>
-                <div class="form-group">
-                    <label for="lecturer">Lecturer</label>
-                    <input type="text" id="lecturer" value="" required>
->>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
                 </div>
                 <div class="form-group">
                     <label for="cb_type">CB Type</label>
@@ -144,15 +110,8 @@
             </section>
         </div>
 
-<<<<<<< HEAD
 
         <div class="containerss">
-        <form method="post" action="{{ route('CBform.submit') }}" enctype="multipart/form-data">
-=======
-        <div class="containerss">
-        <form method="post" action="#" class="mb-5" enctype="multipart/form-data">
->>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
-        @csrf
             <section class="progress-form">
                 <h2 class="form-title">Progress Form</h2>
                 <div class="form-group">
@@ -207,13 +166,8 @@
             </section>
         </form>
     </div>
-    </form>
     </div>
 </body>
 
-<<<<<<< HEAD
 
 @endsection
-=======
-@endsection
->>>>>>> fc48673907dbea020c02c8d0370ee6d0d7cebc9e
