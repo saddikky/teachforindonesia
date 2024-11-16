@@ -1,0 +1,75 @@
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+btn{
+    justify-content: center;
+}
+
+.btn-custom-darkpurple{
+    background-color:#C72C41; /* Custom background color */
+    color: #ffffff; /* Text color */
+    font-weight: bolder;
+}
+
+.btn-custom-darkpurple:hover{
+    background-color:#502F4C; /* Custom background color */
+    color: #ffffff; /* Text color */
+}
+
+.status {
+    display: inline-flex; /* Change display to inline-flex for centering */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.status.waiting {
+    background: linear-gradient(180deg, #ed4855, #d73930);
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-bottom: 2%;
+    margin-top: 5%;
+}
+
+.card{
+    width: 50%;
+}
+
+.mb-3, .mb-4 {
+    margin-bottom: 1rem !important;
+}
+
+.invalid-feedback{
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.regist{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #C72C41;
+}
+
+.regiss{
+    margin-top: 15px;
+    text-align: right;
+}

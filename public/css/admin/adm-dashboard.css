@@ -1,0 +1,264 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+ }
+ 
+ 
+ .dashboard {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+ }
+ 
+ .header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+ }
+ 
+h3{
+    font-weight: 600;
+    font-size: 1.75rem;
+}
+
+
+h4{
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+ 
+.kiri{
+   width: 100%;
+   justify-content: left;
+}
+ 
+ .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+ }
+ 
+ 
+ /* Individual card styling */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.card h2 {
+    font-size: 1.5em;
+    text-align: left;
+    margin-bottom: 15px;
+    width: 100%;
+}
+ 
+ 
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    border: 0;
+    border-top: var(--bs-border-width) solid;
+    opacity: .25;
+}
+ 
+ 
+ /* Progress bar styling */
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(#333 0% 83%, #eee 83% 100%);
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+ .event-list, .submission-list {
+   position: relative;
+   width: 100%;
+}
+ 
+ 
+.submission {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+ .event {
+   display: flex;
+   flex-direction: column;
+   padding: 10px;
+   border-radius: 8px;
+   margin-bottom: 10px;
+}
+
+
+.event span:first-child {
+   font-weight: 600;
+   margin-bottom: 4px;
+}
+
+
+.event span:last-child {
+   color: #333;
+}
+ 
+ .event:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.01);
+    cursor: pointer;
+ }
+ 
+ .details-btn {
+    background-color: #c91d1d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+ }
+ 
+.view-more {
+   margin-top: 20px;
+   display: block;  
+   text-align: right;    
+   color: #0097da;      
+   font-weight: 600;  
+   text-decoration: none;  
+}
+ 
+.submission {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    background-color: transparent;
+    color: inherit;
+}
+ 
+ 
+.submission:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.01);
+    cursor: pointer;
+}
+ 
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    width: 170px;
+    text-align: center;
+}
+ 
+ 
+.status.pending { background: linear-gradient(180deg,  #f39f33, #f18700); }
+.status.accepted { background: linear-gradient(180deg, #01b464, #01924f); }
+.status.rejected { background: linear-gradient(180deg, #ed4855, #d73930); }
+ 
+ 
+/* Responsive design */
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 10px;
+    }
+}
+ 
+.circle-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+ 
+ 
+.circle-progress {
+    position: center;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+}
+ 
+.circle-progress svg {
+    position: absolute;
+    top: 0;
+    left: 50;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+ 
+ 
+ circle {
+    fill: none;
+    stroke-width: 17;
+ }
+ 
+ 
+ circle:first-child {
+    stroke: #ddd;
+ }
+ 
+ 
+ #progress-circle {
+    stroke: #ff5733;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    transition: stroke-dashoffset 0.6s ease;
+ }
+ 
+ 
+ .progress-value {
+    position: absolute;
+    text-align: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+ }
+ 
+ 
+ /* Course Card Button Styling */
+ .btn {
+    background-color: #C72C41;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+ }
+ 
+ 
+ .btn:hover {
+    background-color: rgba(199, 44, 65, 0.8);
+    color: white;
+ }

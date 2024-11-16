@@ -1,0 +1,170 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.centered-div {
+    margin: auto;
+    max-width: fit-content; /* Adjust as needed, or set a fixed width */
+}
+
+.text-base{
+    color: #C72C41;
+    font-size: 1.25rem !important;
+    /* margin: 0 !important; */
+}
+
+.text-before{
+    color: rgba(51,51,51);
+    font-size: 1.25rem !important;
+}
+
+.rounded-full{
+    background-color: #C72C41;
+}
+
+.before{
+    background-color: #fff;
+    color: #333;
+    border-color: #333 !important;
+}
+
+.transparent{
+    background-color: rgba(199, 44, 65, 0.1);
+    color: #C72C41;
+    border-color: #C72C41 !important;
+}
+
+
+.containerss {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 2rem;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+    font-size: 2rem;
+}
+
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+
+.form-group select {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    appearance: none; /* Removes default arrow in most browsers */
+}
+
+
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff; /* Optional: add a color when focused */
+}
+
+
+/* .form-group select {
+    width: 100%;
+} */
+
+
+/* .form-group::after {
+    content: '▼';
+    font-size: 12px;
+    color: #999;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+} */
+
+
+.form-group:last-child {
+    border-bottom: none;
+}
+
+
+input[type="text"],
+input[type="url"],
+input[type="file"] {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #ffff;
+}
+
+
+label {
+    flex: 1;
+}
+
+
+span {
+    flex: 2;
+    text-align: left;
+    color: #555;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.button-container-solo {
+    display: flex;
+    justify-content: end;
+    margin-top: 2rem;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+
+.back-button {
+    background: linear-gradient(180deg,  #f39f33, #f18700);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.next-button {
+    background: linear-gradient(180deg, #01b464, #01924f);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}

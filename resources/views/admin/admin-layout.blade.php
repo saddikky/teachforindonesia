@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <h2 class="tfibanh mb-0">TEACH FOR INDONESIA</h2>
 
-        <a id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="inline-flex items-center">Hello, {{ Auth::user()->name }}<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <a id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="inline-flex items-center">Hello, {{ Auth::user()->nim }}<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
             </svg>
         </a>
@@ -27,6 +27,7 @@
         <div id="dropdownInformation" class="name-backdrop z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
             <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
                 <div>{{ Auth::user()->name }}</div>
+                <!-- {{ Auth::user()->name }} -->
                 <div class="font-medium truncate">{{ Auth::user()->email }}</div>
             </div>
             <div class="py-2">
@@ -48,15 +49,18 @@
 
         <div class="containerLAY">
             <h6 class="user-name">Hello, {{ Auth::user()->name }}</h6>
-            <h5 class="role-name">Student</h5>
+            <h5 class="role-name">Super Admin</h5>
         </div>
         <div class="nav-section px-3">
             <ul>
-                <li><a href="{{ route('dashboard') }}" class="{{ Route::is('dashboard') ? 'active' : '' }}">Dashboard</a></li>
-                <li><a href="{{ route('social-event') }}" class="{{ Route::is('social-event', 'SEdetails', 'SEregister') ? 'active' : '' }}">Social Event</a></li>
-                <li><a href="{{ route('cb-course') }}" class="{{ Route::is('cb-course', 'CBdetails', 'CBdetails2') ? 'active' : '' }}">Social Activity - CB Course</a></li>
-                <li><a href="{{ route('social-innovation-project') }}" class="{{ Route::is('social-innovation-project', 'SIdetails') ? 'active' : '' }}">Social Innovation Project</a></li>
-                <li><a href="{{ route('comserv') }}" class="{{ Route::is('comserv') ? 'active' : '' }}">Community Service Hours</a></li>
+                <li><a href="{{ route('admDashboard') }}" class="{{ Route::is('admDashboard') ? 'active' : '' }}">Dashboard</a></li>
+                <li>
+                    <ul>
+                        <!-- <li><a class="mt-2" href="{{ route('social-event') }}" class="">Social Event</a></li> -->
+                        <li><a href="{{ route('admCb_course') }}" class="{{ Route::is('admCb_course', 'admCreate', 'admCreate2', 'admEdit', 'admEdit2') ? 'active' : '' }}">Character Building Course</a></li>
+                        <li><a href="{{ route('admProject') }}" class="{{ Route::is('admProject') ? 'active' : '' }}">Character Building Project</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -66,7 +70,7 @@
                 @yield('content')
             </div>
         </div>
-
+        
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>

@@ -1,0 +1,126 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    /* padding: 20px; */
+    /* line-height: 1.6; */
+    /* font-weight: 400; */
+}
+
+
+h3{
+    font-weight: 600;
+}
+
+
+h4{
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+
+.dashboard {
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.sidebar a.active {
+    background-color: #70161f;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding-left: 10px;
+    border-radius: 8px;
+}
+
+
+.card-link {
+    display: flex;
+    flex: 0 1 calc(33% - 20px);
+    /* justify-content: flex-start; */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color from card */
+    display: block;
+}
+
+
+.card {
+    justify-content: flex-start;
+    flex: 0 1 calc(33% - 20px);
+    background-color:  #ffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s;
+}
+
+
+.card p {
+    line-height: 1.6; /* Adjust this value as needed */
+    margin-bottom: 10px; /* Optional: reduce space between paragraphs */
+}
+
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+
+.status {
+    display: inline-flex; /* Change display to inline-flex for centering */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    margin-top: 15px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.status.waiting {
+    background: linear-gradient(180deg, #ed4855, #d73930);
+}
+
+.status.in-review {
+    background: linear-gradient(180deg,  #f39f33, #f18700);
+}
+
+.status.reviewed {
+    background: linear-gradient(180deg, #01b464, #01924f);
+}
+
+.status.blue {
+    background: linear-gradient(180deg, #0097da, #006f9e);
+    margin-top: 0 !important;
+}
+
+
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+
+@media (max-width: 480px) {
+    .card {
+        flex: 1 1 100%;
+    }
+}
