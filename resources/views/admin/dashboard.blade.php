@@ -15,53 +15,37 @@
         <div class="cards-container">
             <div class="card soc">
                 <div class="kiri">
-                    <h4>Upcoming Social Event</h4>
+                    <h4>Ongoing Character Building Course</h4>
                 </div>
-                    <div class="event-list">
-                    <div class="event">
-                        <span>Pelatihan Pengenalan Komputer Siswa SD 1</span>
-                        <span>31 Sep 2024, 09:00 GMT+7</span>
-                    </div>
-                    <div class="event">
-                        <span>Pelatihan Pengenalan Komputer Siswa SD 2</span>
-                        <span>31 Sep 2024, 09:00 GMT+7</span>
-                    </div>
-                    <a href="{{ route('social-event') }}" class="view-more" style="text-align: right">View more >></a>
+                <div class="event-list">
+                    @foreach ($ongoingEvents as $event)
+                        <div class="event">
+                            <span>{{ $event->e_name }}</span>
+                            <span>{{ \Carbon\Carbon::parse($event->report_deadline)->format('d F Y, h:i A') }} GMT+7</span>
+                        </div>
+                    @endforeach
+                    <a href="{{ route('admCreate') }}" class="view-more" style="text-align: right">View more >></a>
                 </div>
             </div>
         </div>
+
         <div class="card submission-card">
             <div class="kiri">
-                <h4>My Submission</h4>
+                <h4>Project Submissions</h4>
             </div>
             <div class="submission-list">
-                <div class="submission">
-                    <span>Project Character Building Course Odd 2023/2024</span>
-                    <span class="status pending">PENDING</span>
-                </div>
-                <div class="submission">
-                    <span>Donor Darah Kampus Kemanggisan Sep 2024</span>
-                    <span class="status accepted">ACCCEPTED</span>
-                </div>
-                <div class="submission">
-                    <span>Fun Learning di PAUD Kec Palmerah Batch1 Ganjil 24</span>
-                    <span class="status rejected">REJECTED</span>
-                </div>
-                <div class="submission">
-                    <span>BIMBEL Kampus Kijang BINUS Batch 1 Ganjil 2024</span>
-                    <span class="status pending">PENDING</span>
-                </div>
+                @foreach ($submissions as $submission)
+                    <div class="submission">
+                        <span>{{ $submission->project_name }}</span>
+                        <span class="status {{ $submission->status }}">{{ strtoupper($submission->status) }}</span>
+                    </div>
+                @endforeach
+                <a href="{{ route('admProject') }}" class="view-more" style="text-align: right">View more >></a>
             </div>
         </div>
     </div>
 
-
-
-
 @endsection
-
-
-
 
 @push('scripts')
    <script src="{{ asset('js/dashboard.js') }}"></script>

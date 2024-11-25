@@ -9,13 +9,17 @@ class ProgressDetail extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'p_id'; 
+
     protected $fillable = [
-        'nim',
-        'cb_type',
+        'event_id',
         'status',
+        'nim',
         'leader_nim',
         'lecturer_code',
         'lecturer',
+        'cb_type',
+        'cb_class',
         'project_name',
         'project_location',
         'category',
@@ -24,6 +28,7 @@ class ProgressDetail extends Model
         'video',
         'report_link',
         'video_link',
+        
     ];
 
     public function eventDetail()

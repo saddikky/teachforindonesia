@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EventDetail;
+use App\Models\ProgressDetail;
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -14,48 +17,38 @@ class AuthController extends Controller
         return view('login');
     }
 
+    function showHome(){
+        $events = EventDetail::latest()->take(2)->get();
+        $user = auth()->user();
+        $submissions = ProgressDetail::where('nim', $user->nim)->get();
+        return view('welcome', compact('events', 'user', 'submissions'));
+    }
+
     function showDashboard(){
-        return view('welcome');
-    }
-
-    function showsocialEvent(){
-        return view('social-event');
-    }
-
-    function showCBCourse(){
-        return view('cb-course');
-    }
-
-    function showinnovationProject(){
-        return view('social-innovation-project');
-    }
-
-    function showSEdetails(){
-        return view('se-details');
-    }
-
-    function showSEregister(){
-        return view('se-register');
+        $user = auth()->user();
+        return view('welcome', compact('user'));
     }
 
     function showCBdetails(){
         return view('cb-details');
     }
-    
-    function showCBdetails2(){
-        return view('cb-details-2');
+
+    public function showComserv()
+    {
+        $userNim = auth()->user()->nim;
+        $reviewedSubmissions = ProgressDetail::where('nim', $userNim)
+            ->where('status', 'reviewed')
+            ->get();
+
+        return view('comserv', compact('reviewedSubmissions'));
     }
 
-    function showSIdetails(){
-        return view('si-details');
-    }
+    public function showAdmDashboard()
+    {
+        $ongoingEvents = EventDetail::orderBy('created_at', 'desc')->take(4)->get();
+        $submissions = ProgressDetail::orderBy('created_at', 'desc')->take(4)->get();
 
-    function showComserv(){
-        return view('comserv');
-    }
-
-    function showAdmDashboard(){
-        return view('admin.dashboard');
+        return view('admin.dashboard', compact('ongoingEvents', 'submissions'));
     }
 
 }

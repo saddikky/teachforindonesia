@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EventDetail;
+use App\Models\ProgressDetail;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,6 @@ class EventDetailController extends Controller
 
     public function createCb(Request $request)
     {
-        // Define custom validation rules
         $validator = Validator::make($request->all(), [
             'e_name' => 'required|string|max:255',
             'e_type' => 'required|string|max:255',
@@ -42,47 +42,34 @@ class EventDetailController extends Controller
             'cb_type' => 'required|string',
         ]);
 
-        // Check if the validation failed
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
         try {
-            // Attempt to create the event
-            EventDetail::create($request->all());
-            
-            // Redirect with success message
+            EventDetail::create($request->all());            
             return redirect()->route('admCb_course')->with('success', 'Event Detail created successfully.');
         } catch (QueryException $e) {
-            dd($e->getMessage()); // Menampilkan pesan error query di browser
             return redirect()->back()->with('error', 'There was an error creating the event. Please try again.');
         } catch (\Exception $e) {
-            // Catch any other errors
             return redirect()->back()->with('error', 'An unexpected error occurred. Please try again.');
         }
     }
 
-
-    function showAdmCreate2(){
-        return view('admin.create-cb-2');
-    }
-
     function showAdmProject(){
-        return view('admin.cb-project');
+        $ongoingProjects = ProgressDetail::where('status', 'in-review')->get();
+        $pastProjects = ProgressDetail::where('status', 'reviewed')->get();
+        return view('admin.cb-project', compact('ongoingProjects', 'pastProjects'));
     }
 
     public function showAdmEdit($id)
     {
-        // Temukan event berdasarkan event_id
         $event = EventDetail::where('event_id', $id)->firstOrFail();
-
-        // Return ke view dengan data event
         return view('admin.edit-cb', compact('event'));
     }
 
     public function updateCb(Request $request, $event_id)
     {
-        // Validasi input
         $validator = Validator::make($request->all(), [
             'e_name' => 'required|string|max:255',
             'e_type' => 'required|string|max:255',
@@ -100,20 +87,13 @@ class EventDetailController extends Controller
         }
     
         try {
-            // Temukan data berdasarkan event_id dan update
             $event = EventDetail::where('event_id', $event_id)->firstOrFail();
             $event->update($request->all());
     
-            // Redirect dengan pesan sukses
             return redirect()->route('admCb_course')->with('success', 'Event updated successfully.');
         } catch (\Exception $e) {
-            // Tangani error
             return redirect()->back()->with('error', 'An unexpected error occurred. Please try again.');
         }
     }    
-
-
-    function showAdmEdit2(){
-        return view('admin.edit-cb-2');
-    }
+    
 }

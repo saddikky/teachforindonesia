@@ -9,14 +9,23 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'nim' => 'required|string|unique:users',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'nim' => 'required|string|size:10|unique:users|regex:/^[0-9]{10}$/',
+            'email' => 'required|string|email|max:255|unique:users|regex:/@binus\.ac\.id$/',
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'confirmed', 
+                'regex:/[A-Z]/',        
+                'regex:/[a-z]/',    
+                'regex:/[0-9]/',  
+                'regex:/[\W_]/',
+            ],
         ]);
 
         if ($validator->fails()) {
@@ -34,7 +43,7 @@ class UserController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Failed to create account. Please try again.');
         }
-        
+
         return redirect()->route('login')->with('success', 'Account created successfully!');
     }
 
@@ -45,24 +54,25 @@ class UserController extends Controller
             'nim' => 'required|string|max:255',
             'password' => 'required|string|min:8',
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
+
         // Find the user by NIM
         $user = User::where('nim', $request->nim)->first();
-    
+
         if (!$user) {
             return redirect()->route('login')->withErrors(['nim' => 'NIM not found.'])->withInput();
         }
-    
+
         // Check if the password is correct
         if (Hash::check($request->password, $user->password)) {
             Auth::login($user);
-    
-            // Optionally check if login is successful
-            if (Auth::check()) {
+
+            if (Auth::check() && $user->is_admin) {
+                return redirect()->route('admDashboard');
+            } else if (Auth::check()) {
                 return redirect('/');
             } else {
                 return redirect()->route('login')->withErrors(['login' => 'Login failed, please try again.']);
@@ -70,5 +80,13 @@ class UserController extends Controller
         } else {
             return redirect()->route('login')->withErrors(['password' => 'Invalid credentials.'])->withInput();
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate(); // Menghapus sesi
+        $request->session()->regenerateToken(); // Regenerasi token CSRF
+        return redirect()->route('login'); // Arahkan ke halaman landing
     }
 }

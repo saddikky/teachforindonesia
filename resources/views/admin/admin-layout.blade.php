@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <h2 class="tfibanh mb-0">TEACH FOR INDONESIA</h2>
 
-        <a id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="inline-flex items-center">Hello, {{ Auth::user()->nim }}<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <a id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="inline-flex items-center">Hello, {{ Auth::user()->name }}<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
             </svg>
         </a>
@@ -27,11 +27,10 @@
         <div id="dropdownInformation" class="name-backdrop z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
             <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
                 <div>{{ Auth::user()->name }}</div>
-                <!-- {{ Auth::user()->name }} -->
                 <div class="font-medium truncate">{{ Auth::user()->email }}</div>
             </div>
             <div class="py-2">
-                <form action="#" method="post">
+                <form action="{{ route('logout') }}" method="post">
                     @csrf
                     <button class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 width:350 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Logout</button>
                 </form>
@@ -56,7 +55,7 @@
                 <li><a href="{{ route('admDashboard') }}" class="{{ Route::is('admDashboard') ? 'active' : '' }}">Dashboard</a></li>
                 <li>
                     <ul>
-                        <!-- <li><a class="mt-2" href="{{ route('social-event') }}" class="">Social Event</a></li> -->
+                        
                         <li><a href="{{ route('admCb_course') }}" class="{{ Route::is('admCb_course', 'admCreate', 'admCreate2', 'admEdit', 'admEdit2') ? 'active' : '' }}">Character Building Course</a></li>
                         <li><a href="{{ route('admProject') }}" class="{{ Route::is('admProject') ? 'active' : '' }}">Character Building Project</a></li>
                     </ul>

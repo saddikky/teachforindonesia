@@ -18,6 +18,15 @@ h4{
     padding: .5rem 1rem !important;
 }
 
+.centered-div {
+    margin: auto;
+    max-width: fit-content;
+}
+
+.centered-div p{
+    font-size: 1.3rem;
+}
+
 .nav-tabs {
     list-style: none;
     padding: 0;

@@ -176,6 +176,7 @@ hr {
     font-weight: bold;
     width: 170px;
     text-align: center;
+    margin-top: 0 !important;
 }
  
  

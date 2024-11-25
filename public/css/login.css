@@ -40,6 +40,10 @@ btn{
     background: linear-gradient(180deg, #ed4855, #d73930);
 }
 
+.status.waiting:hover {
+    background: linear-gradient(180deg, #ed4855, #9b201a);
+}
+
 img{
     display: block;
     margin-left: auto;
@@ -67,6 +71,10 @@ img{
     font-size: 14px;
     font-weight: 400;
     color: #C72C41;
+}
+
+.regist:hover {
+    text-decoration: underline;
 }
 
 .regiss{

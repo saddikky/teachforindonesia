@@ -34,62 +34,64 @@
         </ol>
     </div> -->
    
+    <!-- <form action="{{ route('CBform.submit', ['event_id' => $event->event_id]) }}" method="get"> -->
     <div class="containerss">
     <h2 class="form-title">Character Building Course Detail</h2>
         <div class="form-group">
             <label>Status</label>
-            <span>: fetch</span>
+            <span>: Waiting for Report</span>
         </div>
         <div class="form-group">
             <label>Event Name</label>
-            <span>: fetch</span>
+            <span>: {{$event->e_name}} </span>
         </div>
         <div class="form-group">
             <label>Event Type</label>
-            <span>: fetch</span>
+            <span>: {{$event->e_type}} </span>
         </div>
         <div class="form-group">
             <label>Organizer</label>
-            <span>: fetch</span>
+            <span>: {{$event->organizer}} </span>
         </div>
         <div class="form-group">
             <label>Role</label>
-            <span>: fetch</span>
+            <span>: {{$event->role}} </span>
         </div>
         <div class="form-group">
             <label>Opening Registration</label>
-            <span>: fetch</span>
+            <span>: {{\Carbon\Carbon::parse($event->open_reg)->format('d/m/Y H:i')}} </span>
         </div>
         <div class="form-group">
             <label>Closing Registration</label>
-            <span>: fetch</span>
+            <span>: {{\Carbon\Carbon::parse($event->close_reg)->format('d/m/Y H:i')}} </span>
         </div>
         <div class="form-group">
             <label>Report Deadline</label>
-            <span>: fetch</span>
+            <span>: {{\Carbon\Carbon::parse($event->report_deadline)->format('d/m/Y H:i')}} </span>
         </div>
         <div class="form-group">
             <label>Event Description</label>
-            <span>: fetch</span>
+            <span>: {{$event->e_desc}} </span>
         </div>
         <div class="form-group">
             <label>Notes</label>
-            <span>: fetch</span>
+            <span>: {{$event->notes}} </span>
         </div>
     </div>
+<!-- </form> -->
 
-    <form method="post" action="{{ route('CBform.submit') }}" enctype="multipart/form-data">
+    <form method="post" action="{{ route('CBform.submit', ['event_id' => $event->event_id]) }}" enctype="multipart/form-data">
     @csrf
         <div class="containerss">
             <section class="student-detail">
                 <h2 class="form-title">Student Detail Form</h2>
                 <div class="form-group">
                     <label for="nim">NIM</label>
-                    <input type="text" id="nim" name="nim" value="2602073100" required>
+                    <input type="text" id="nim" name="nim" value="" required>
                 </div>
                 <div class="form-group">
                     <label for="leader_nim">Leader NIM</label>
-                    <input type="text" id="leader_nim" name="leader_nim" value="2602063094" required>
+                    <input type="text" id="leader_nim" name="leader_nim" value="" required>
                 </div>
                 <div class="form-group">
                     <label for="lecturer_code">Lecture Code</label>
@@ -100,12 +102,12 @@
                     <input type="text" id="lecturer" name="lecturer" value="" required>
                 </div>
                 <div class="form-group">
-                    <label for="cb_type">CB Type</label>
-                    <span>: fetch</span>    
+                <label for="cb_type">CB Type</label>
+                <input type="text" id="cb_type" name="cb_type" value="{{ $event->cb_type }}" required>   
                 </div>
                 <div class="form-group">
                     <label for="cb_class">CB Class</label>
-                    <input type="text" id="cb_class" name="cb_class" value="CB01109219" required>
+                    <input type="text" id="cb_class" name="cb_class" value="" required>
                 </div>
             </section>
         </div>
@@ -116,11 +118,11 @@
                 <h2 class="form-title">Progress Form</h2>
                 <div class="form-group">
                     <label for="project_name">Project Name</label>
-                    <input type="text" id="project_name" name="project_name" value="Pengaruh Globalisasi terhadap Moderasi Beragama di Kalangan Remaja" required>
+                    <input type="text" id="project_name" name="project_name" value="" required>
                 </div>
                 <div class="form-group">
                     <label for="project_location">Project Location</label>
-                    <input type="text" id="project_location" name="project_location" value="SMPK Sang Timur" required>
+                    <input type="text" id="project_location" name="project_location" value="" required>
                 </div>
                 <div class="form-group">
                     <label for="category">Category</label>
@@ -157,9 +159,10 @@
                     <label for="video_link">Video Link</label>
                     <input type="url" id="video_link" name="video_link" value="https://drive.google.com/file/d/26202063094/view" required>
                 </div>
+
+                <input type="hidden" name="event_id" value="{{ $event_id }}">
                
                 <div class="button-container">
-                    <!-- <a href="{{ route('cb-course') }}" class="back-button">BACK</a> -->
                     <a href="{{ route('cb-course') }}" class="back-button">BACK</a>
                     <button type="submit" class="next-button">SUBMIT</button>    
                 </div>

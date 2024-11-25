@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>BINUS - TFI Event</title>
     <link rel="icon" href="/images/TFI-Favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -30,7 +31,7 @@
                 <div class="font-medium truncate">{{ Auth::user()->email }}</div>
             </div>
             <div class="py-2">
-                <form action="#" method="post">
+                <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 width:350 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Logout</button>
                 </form>
@@ -48,14 +49,12 @@
 
         <div class="containerLAY">
             <h6 class="user-name">Hello, {{ Auth::user()->name }}</h6>
-            <h5 class="role-name">Student</h5>
+            <h5 class="role-name">{{ Auth::user()->is_admin ? 'Super Admin' : 'Student' }}</h5>
         </div>
         <div class="nav-section px-3">
             <ul>
-                <li><a href="{{ route('dashboard') }}" class="{{ Route::is('dashboard') ? 'active' : '' }}">Dashboard</a></li>
-                <li><a href="{{ route('social-event') }}" class="{{ Route::is('social-event', 'SEdetails', 'SEregister') ? 'active' : '' }}">Social Event</a></li>
+                <li><a href="{{ route('home') }}" class="{{ Route::is('home') ? 'active' : '' }}">Dashboard</a></li>
                 <li><a href="{{ route('cb-course') }}" class="{{ Route::is('cb-course', 'CBdetails', 'CBdetails2') ? 'active' : '' }}">Social Activity - CB Course</a></li>
-                <li><a href="{{ route('social-innovation-project') }}" class="{{ Route::is('social-innovation-project', 'SIdetails') ? 'active' : '' }}">Social Innovation Project</a></li>
                 <li><a href="{{ route('comserv') }}" class="{{ Route::is('comserv') ? 'active' : '' }}">Community Service Hours</a></li>
             </ul>
         </div>

@@ -15,46 +15,41 @@
    <div class="dashboard">
    <div class="cards-container">
        <!-- Community Service Hours Card -->
-       <div class="card community-service">
-           <div class="kiri">
-               <h4>Community Service Hours</h4>
-           </div>
-           <div class="circle-container">
-               <div class="progress-value" id="progress-value">0%</div>
-               <svg width="300" height="200">
-                   <defs>
-                       <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                           <stop offset="0%" style="stop-color:#4caf50; stop-opacity:1" />
-                           <stop offset="100%" style="stop-color:#81c784; stop-opacity:1" />
-                       </linearGradient>
-                   </defs>
-                   <!-- Background Circle -->
-                   <circle cx="100" cy="100" r="70" id="bg-circle"></circle>
-                   <!-- Progress Circle -->
-                   <circle cx="100" cy="100" r="70" id="progress-circle"></circle>
-               </svg>
-           </div>
-       </div>
+<div class="card community-service" data-comserve="{{ $user->comserve }}">
+    <div class="kiri">
+        <h4>Community Service Hours</h4>
+    </div>
+    <div class="circle-container">
+        <div class="progress-value" id="progress-value">0/30    </div>
+        <svg width="300" height="200">
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4caf50; stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#81c784; stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <!-- Background Circle -->
+            <circle cx="100" cy="100" r="70" id="bg-circle" stroke="#ccc" stroke-width="10" fill="none"></circle>
+            <!-- Progress Circle -->
+            <circle cx="100" cy="100" r="70" id="progress-circle" stroke="url(#gradient)" stroke-width="10" fill="none" stroke-dasharray="440" stroke-dashoffset="440"></circle>
+        </svg>
+    </div>
+</div>
 
 
-
-
-       <!-- Upcoming Social Event Card -->
-       <div class="card soc">
+    <div class="card soc">
         <div class="kiri">
-            <h4>Upcoming Social Event</h4>
+            <h4>Ongoing Character Building Course</h4>
         </div>
-            <div class="event-list">
-               <div class="event">
-                   <span>Pelatihan Pengenalan Komputer Siswa SD 1</span>
-                   <span>31 Sep 2024, 09:00 GMT+7</span>
-               </div>
-               <div class="event">
-                   <span>Pelatihan Pengenalan Komputer Siswa SD 2</span>
-                   <span>31 Sep 2024, 09:00 GMT+7</span>
-               </div>
-               <a href="{{ route('social-event') }}" class="view-more" style="text-align: right">View more >></a>
-           </div>
+        <div class="event-list">
+        @foreach ($events as $event)
+            <div class="event">
+                <span>{{ $event->e_name }}</span>
+                <span>{{ \Carbon\Carbon::parse($event->open_reg)->format('d M Y, H:i') }} GMT+7</span>
+            </div>
+        @endforeach
+        <a href="{{ route('cb-course') }}" class="view-more" style="text-align: right">View more >></a>
+    </div>
        </div>
    </div>
 
@@ -67,26 +62,15 @@
             <h4>My Submission</h4>
         </div>
         <div class="submission-list">
-           <div class="submission">
-               <span>Project Character Building Course Odd 2023/2024</span>
-               <span class="status pending">PENDING</span>
-           </div>
-           <div class="submission">
-               <span>Donor Darah Kampus Kemanggisan Sep 2024</span>
-               <span class="status accepted">ACCCEPTED</span>
-           </div>
-           <div class="submission">
-               <span>Fun Learning di PAUD Kec Palmerah Batch1 Ganjil 24</span>
-               <span class="status rejected">REJECTED</span>
-           </div>
-           <div class="submission">
-               <span>BIMBEL Kampus Kijang BINUS Batch 1 Ganjil 2024</span>
-               <span class="status pending">PENDING</span>
-           </div>
+            @foreach ($submissions as $submission)
+                <div class="submission">
+                    <span>{{ $submission->project_name }}</span>
+                    <span class="status {{ $submission->status }}">{{ strtoupper($submission->status) }}</span>
+                </div>
+            @endforeach
        </div>
    </div>
 </div>
-
 
 
 
@@ -96,5 +80,8 @@
 
 
 @push('scripts')
+    <script>
+        window.userComserve = {!! $user->comserve ?? 0 !!};
+    </script>
    <script src="{{ asset('js/dashboard.js') }}"></script>
 @endpush

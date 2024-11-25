@@ -86,6 +86,15 @@ h4{
     background: linear-gradient(180deg, #01b464, #01924f);
 }
 
+.status.revision {
+    background: linear-gradient(180deg,  #f39f33, #f18700);
+}
+
+.status.revision:hover {
+    background: linear-gradient(180deg,  #f39f33, #b56600);
+}
+
+
 @media (max-width: 768px) {
     .card {
         flex: 1 1 calc(50% - 20px);

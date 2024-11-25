@@ -10,14 +10,14 @@ return new class extends Migration
     {
         Schema::create('progress_details', function (Blueprint $table) {
             $table->id('p_id'); // Primary Key
-            $table->enum('status', ['waiting', 'in-review', 'revision', 'reviewed']);
+            $table->enum('status', ['waiting', 'in-review', 'revision', 'reviewed'])->default('waiting');
             $table->string('nim'); // This is your foreign key column
             $table->foreign('nim')->references('nim')->on('users')->onDelete('cascade');
             $table->string('leader_nim');
             $table->string('lecturer_code');
             $table->string('lecturer');
             $table->string('cb_type');
-            $table->bigInteger('event_id');
+            $table->unsignedBigInteger('event_id');
             $table->foreign('event_id')->references('event_id')->on('event_details')->onDelete('cascade');
             $table->string('cb_class');
             $table->string('project_name');
